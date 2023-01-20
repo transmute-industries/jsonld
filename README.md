@@ -1,4 +1,5 @@
 # @transmute/jsonld
+[![CI](https://github.com/transmute-industries/jsonld/actions/workflows/ci.yml/badge.svg)](https://github.com/transmute-industries/jsonld/actions/workflows/ci.yml)
 
 This package is a wrapper around the original `jsonld` package published by digitalbazaar as found here: https://www.npmjs.com/package/jsonld
 
