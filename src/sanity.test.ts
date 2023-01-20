@@ -55,13 +55,13 @@ describe("returns void when cannonizing data", () => {
         try {
             await jsonld.safeCanonize(badJsonLd, { documentLoader })
         } catch(ex) {
-          const expectssErrors = [
+          const expectedErrors = [
             "Invalid JSON-LD ID at /@id. Using this value would allow the data in the object to be mutable.",
             "Invalid JSON-LD ID at /items/0/@id. Using this value would allow the data in the object to be mutable."
           ]
           const errors = JSON.parse((ex as Error).message);
-          expect(errors[0]).toStrictEqual(expectssErrors[0])
-          expect(errors[1]).toStrictEqual(expectssErrors[1])
+          expect(errors[0]).toStrictEqual(expectedErrors[0])
+          expect(errors[1]).toStrictEqual(expectedErrors[1])
         }
     })
 });
