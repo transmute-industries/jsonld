@@ -1,7 +1,7 @@
-const NodeEnvironment = require("jest-environment-node");
+const TestEnvironment = require("jest-environment-node");
 const { TextEncoder, TextDecoder } = require("util");
 
-class MyEnvironment extends NodeEnvironment {
+class MyEnvironment extends TestEnvironment {
   constructor(config) {
     super(
       Object.assign({}, config, {
