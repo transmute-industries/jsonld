@@ -1,16 +1,8 @@
+/* eslint-disable no-undef */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  // https://github.com/panva/jose/discussions/105
-  // https://github.com/facebook/jest/issues/2549
-  // Fixes jest bugs created by modifying globals...
-  // ReferenceError: TextDecoder is not defined
-  testEnvironment: "node",
-  preset: "ts-jest",
-  moduleFileExtensions: ["ts", "js", "json"],
-  transform: {
-    "^.+\\.(ts|tsx)$": "./node_modules/ts-jest",
-  },
-  testMatch: ["**/*.(int.test|test).(ts)"],
-  moduleNameMapper: {
-    "^jose/(.*)$": "<rootDir>/node_modules/jose/dist/node/cjs/$1",
-  },
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  testPathIgnorePatterns: ['examples', 'attic', 'dist'],
+  coverageReporters: ['json-summary'],
 };

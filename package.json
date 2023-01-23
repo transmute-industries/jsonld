@@ -1,14 +1,12 @@
 {
   "name": "@transmute/jsonld",
   "author": "Isaac Byrne",
-  "module": "dist/jsonld.esm.js",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "license": "Apache-2.0",
   "homepage": "https://github.com/transmute-industries/jsonld",
   "repository": {
     "type": "git",
-    "url": "https://github.com/transmute-industries/jsonld.git",
-    "directory": "./"
+    "url": "https://github.com/transmute-industries/jsonld.git"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -26,6 +24,7 @@
     "clean": "rm -rf ./dist",
     "prebuild": "npm run clean",
     "build": "tsc -b",
+    "coverage": "jest --ci --coverage",
     "test": "jest",
     "lint": "eslint ./src --fix"
   },
