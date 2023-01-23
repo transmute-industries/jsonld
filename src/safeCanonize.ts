@@ -10,7 +10,8 @@ const validateIds = (object: JsonLdDocument) => {
   const dict = pointer.dict(object);
   const errors: string[] = [];
   for (const [key, value] of Object.entries(dict)) {
-    if (key.indexOf("/@id") >= 0 || key.indexOf("/id") >= 0) {
+    const keyToCheck = key.split("/").pop()
+    if (keyToCheck === "@id" || keyToCheck === "id") {
       const isValidIRI = isAbsoluteIri(value as string);
       if (!isValidIRI) {
         errors.push(
