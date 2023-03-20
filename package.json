@@ -1,7 +1,7 @@
 {
   "name": "@transmute/jsonld",
   "author": "Isaac Byrne",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": "Apache-2.0",
   "homepage": "https://github.com/transmute-industries/jsonld",
   "repository": {
