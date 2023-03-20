@@ -1,5 +1,5 @@
 import jsonld from "../src";
-import documentLoader from "../src/__fixtures__/documentLoader";
+import documentLoader from "./__fixtures__/documentLoader";
 
 describe("returns void when cannonizing data", () => {
   // "@id"s are Absolute IRIs
