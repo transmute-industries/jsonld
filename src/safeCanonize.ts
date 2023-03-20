@@ -30,13 +30,17 @@ export const safeCanonize = async (
   { documentLoader, expansion, skipExpansion }: Options.Normalize
 ) => {
   validateIds(input);
-
-  return jsonld.canonize(input, {
-    algorithm: "URDNA2015",
-    format: "application/n-quads",
-    documentLoader,
-    expansion,
-    skipExpansion,
-    useNative: false
-  });
+  try {
+    const nquads = await jsonld.canonize(input, {
+      algorithm: "URDNA2015",
+      format: "application/n-quads",
+      documentLoader,
+      expansion,
+      skipExpansion,
+      useNative: false
+    });
+    return nquads; 
+  } catch(e){
+    throw new Error('Document cannot produce nquads.')
+  }
 };

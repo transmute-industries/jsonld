@@ -24,8 +24,8 @@
     "clean": "rm -rf ./dist",
     "prebuild": "npm run clean",
     "build": "tsc -b",
-    "coverage": "jest --ci --coverage",
-    "test": "jest",
+    "coverage": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --ci --coverage",
+    "test": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest",
     "lint": "eslint ./src --fix"
   },
   "devDependencies": {
@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "json-pointer": "^0.6.2",
-    "jsonld": "5.2.0"
+    "jsonld": "^8.1.1"
   }
 }
