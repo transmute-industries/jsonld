@@ -4,6 +4,7 @@ import documentLoader from "../src/__fixtures__/documentLoader";
 describe("returns void when cannonizing data", () => {
   // "@id"s are Absolute IRIs
   const goodJsonLd = {
+    "@context": { "@vocab": "https://example.com/vocab#" },
     "@id": "urn:uuid:55b6f167-dcad-4dbd-acdc-33922c053ad5",
     "items": [
       {
@@ -16,6 +17,7 @@ describe("returns void when cannonizing data", () => {
 
   // "@id"s are not Absolute IRIs
   const badJsonLd = {
+        "@context": { "@vocab": "https://example.com/vocab#" },
         "@id": "55b6f167-dcad-4dbd-acdc-33922c053ad5",
         "items": 
         [
@@ -36,15 +38,17 @@ describe("returns void when cannonizing data", () => {
       useNative: false
     });
   });
-
-  // Ideally this would error because it's not valid JSON-LD being canonized.
-  it('doesn\'t fails to canonize invalid JSON-LD', async () => {
-    await jsonld.canonize(badJsonLd, {
-      algorithm: "URDNA2015",
-      format: "application/n-quads",
-      documentLoader,
-      useNative: false
-    });
+  
+  
+  it('should error on bad jsonld', async () => {
+    return expect((async () => {
+      await jsonld.canonize(badJsonLd, {
+        algorithm: "URDNA2015",
+        format: "application/n-quads",
+        documentLoader,
+        useNative: false
+      });
+    })()).rejects.toBeDefined();
   })
 
     it('can safely canonize valid JSON-LD', async () => {
